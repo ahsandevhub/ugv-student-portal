@@ -124,19 +124,19 @@ const Page = () => {
       <h1 className="text-xl mb-4 border-l-8 pl-2 border-sky-500 font-bold text-gray-800">
         Student Profile
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="left col-span-1 md:col-span-2 space-y-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="left col-span-1 xl:col-span-2 space-y-6">
           {/* Profile card */}
           <section className="profile_card">
             <div className="bg-white overflow-hidden border border-t-8 border-t-sky-500 rounded-lg shadow-md">
-              <div className="p-6 space-y-5">
-                <div className="flex flex-col md:flex-row gap-6">
+              <div className="sm:p-6 p-4 space-y-5">
+                <div className="flex flex-col items-center sm:items-start md:flex-row gap-6">
                   <div className="flex-shrink-0">
                     <div className="relative">
                       <Image
                         src={StudentImg}
                         alt="Profile image"
-                        className="h-44 w-44 object-cover border rounded-t-md shadow-sm"
+                        className="sm:h-44 h-36 sm:w-44 w-36 object-cover border rounded-t-md shadow-sm"
                       />
                       <div className="absolute top-0 left-0 bg-green-600/90 mt-2 text-sm font-semibold text-white px-3 rounded-e-md">
                         Active
@@ -152,8 +152,8 @@ const Page = () => {
                       </li>
                     </ul>
                   </div>
-                  <ul className="flex-1 space-y-3">
-                    <li className="text-2xl font-bold text-gray-700">
+                  <ul className="flex-1 sm:space-y-3 space-y-2 sm:text-start text-center">
+                    <li className="text-2xl text-center sm:text-start font-bold text-gray-700">
                       Welcome, <span className="text-sky-600">Ahsan Habib</span>
                     </li>
                     <li className="text-gray-600">
@@ -185,7 +185,7 @@ const Page = () => {
                 </li> */}
                   </ul>
                 </div>
-                <p className="text-center py-3 border-2 border-dashed bg-green-50 text-green-600 text-lg font-semibold border-green-200">
+                <p className="text-center py-3 border-2 border-dashed bg-green-50 text-green-600 sm:text-lg text-base font-semibold border-green-200">
                   You are permitted for examination: Summer-2024
                 </p>
               </div>
@@ -195,31 +195,33 @@ const Page = () => {
           {/* Routines */}
           <section className="routine_card">
             <div className="bg-white rounded-lg border shadow-md">
-              <div className="heading pt-5 px-6 flex gap-3 items-center justify-between">
+              <div className="heading sm:pt-5 sm:px-6 p-4 pb-0 flex gap-3 items-center justify-between">
                 <h1 className="text-xl flex-grow leading-none font-bold text-gray-800">
                   Exam Routine
                 </h1>
-                <div className="bg-cyan-500 py-[1px] text-sm text-white px-4 rounded-full font-medium">
+                <div className="hidden sm:block bg-cyan-500 py-[1px] text-sm text-white px-4 rounded-full font-medium">
                   Summer: 2024
                 </div>
-                <div className="bg-lime-500 py-[1px] text-sm text-white px-4 rounded-full font-medium">
+                <div className="hidden sm:block bg-lime-500 py-[1px] text-sm text-white px-4 rounded-full font-medium">
                   Final Term
                 </div>
               </div>
-              <div className="p-6 pt-4">
+
+              {/* Responsive Table Wrapper */}
+              <div className="sm:p-6 sm:pt-4 p-4 overflow-x-auto">
                 <table className="min-w-full border table-auto border-collapse">
                   <thead className="bg-purple-200">
                     <tr>
-                      <th className="px-4 py-2 border border-purple-300 text-left text-sm font-semibold text-gray-700">
+                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
                         Date
                       </th>
-                      <th className="px-4 py-2 border border-purple-300 text-left text-sm font-semibold text-gray-700">
+                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
                         Exam Time
                       </th>
-                      <th className="px-4 py-2 border border-purple-300 text-left text-sm font-semibold text-gray-700">
+                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
                         Subject
                       </th>
-                      <th className="px-4 py-2 border border-purple-300 text-left text-sm font-semibold text-gray-700">
+                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
                         Location
                       </th>
                     </tr>
@@ -230,16 +232,16 @@ const Page = () => {
                         key={index}
                         className="even:bg-purple-50 odd:bg-white"
                       >
-                        <td className="px-4 py-2 border text-sm text-gray-600">
+                        <td className="sm:px-4 sm:py-2 p-1 break-all border sm:text-base text-sm text-gray-600">
                           {exam.date}
                         </td>
-                        <td className="px-4 py-2 border text-sm text-gray-600">
+                        <td className="sm:px-4 sm:py-2 p-1 border sm:text-base text-sm text-gray-600">
                           {exam.examTime}
                         </td>
-                        <td className="px-4 py-2 border text-sm text-gray-600">
+                        <td className="sm:px-4 sm:py-2 p-1 border sm:text-base text-sm text-gray-600">
                           {exam.subject}
                         </td>
-                        <td className="px-4 py-2 border text-sm text-gray-600">
+                        <td className="sm:px-4 sm:py-2 p-1 text-center border sm:text-base text-sm text-gray-600">
                           {exam.location}
                         </td>
                       </tr>
@@ -250,7 +252,7 @@ const Page = () => {
             </div>
           </section>
 
-          <section className="notices p-6 bg-white rounded-md shadow-md border space-y-4">
+          <section className="notices sm:p-6 p-4 bg-white rounded-md shadow-md border space-y-4">
             <h2 className="text-xl font-bold border-l-8 border-amber-500 pl-2">
               Notice Board
             </h2>
@@ -298,12 +300,12 @@ const Page = () => {
 
         {/* Right panel */}
         <div className="col-span-1 space-y-6">
-          <section className="stats grid grid-cols-2 gap-6">
+          <section className="stats grid 2xl:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6">
             <div className="result border flex gap-5 items-center bg-white shadow-md rounded-lg p-4 overflow-hidden border-l-8 border-l-cyan-400">
               <div className="icon text-4xl text-cyan-400 pr-5 border-r">
                 <LuClipboardCheck />
               </div>
-              <div className="text text-center">
+              <div className="text 2xl:text-center">
                 <h3 className="text-slate-500 font-semibold">Current CGPA</h3>
                 <p className="font-bold text-2xl">4.00</p>
               </div>
@@ -312,7 +314,7 @@ const Page = () => {
               <div className="icon text-4xl text-lime-400 pr-5 border-r">
                 <HiOutlineBanknotes />
               </div>
-              <div className="text text-center">
+              <div className="text 2xl:text-center">
                 <h3 className="text-slate-500 font-semibold">Total Due</h3>
                 <p className="font-bold text-2xl">2000.00</p>
               </div>
@@ -320,7 +322,7 @@ const Page = () => {
           </section>
 
           {/* Attendence section */}
-          <section className="attendance p-6 bg-white rounded-md shadow-md border space-y-4">
+          <section className="attendance sm:p-6 p-4 bg-white rounded-md shadow-md border space-y-4">
             <h2 className="text-xl font-bold border-l-8 border-fuchsia-500 pl-2">
               Attendance
             </h2>

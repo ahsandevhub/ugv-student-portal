@@ -10,16 +10,14 @@ const Header = () => {
   const pathname = usePathname();
 
   const formattedPathname =
-    pathname === "/"
-      ? "Student Dashboard"
-      : pathname.slice(1).replace(/-/g, " ");
+    pathname === "/" ? "Dashboard" : pathname.slice(1).replace(/-/g, " ");
 
   return (
-    <header className="sticky top-0 z-50 px-6 py-3 bg-white flex items-center justify-between border-b shadow-md">
-      <h1 className="text-2xl font-bold text-sky-600 capitalize">
+    <header className="sticky top-0 z-50 sm:px-6 px-2 py-3 bg-white flex gap-6 items-center justify-between border-b shadow-md">
+      <h1 className="hidden lg:block text-2xl font-bold text-sky-600 capitalize">
         {formattedPathname}
       </h1>
-      <div className="relative w-1/2">
+      <div className="relative w-1/2 flex-grow lg:flex-none">
         <div className="overflow-hidden mx-auto whitespace-nowrap border rounded-md bg-gray-50 p-2 shadow-inner">
           <p className="animate-scroll text-orange-500 font-medium">
             Welcome to the Student Portal! Explore your courses and manage your
@@ -28,7 +26,7 @@ const Header = () => {
         </div>
         <div className="absolute top-0 gap-2 left-0 h-full px-3 rounded-md ring-orange-300 border-orange-300 ring-2 text-white flex items-center justify-center border bg-orange-500">
           <FaInfoCircle className="text-xl" />
-          <span className="font-medium">Notice:</span>
+          <span className="font-medium hidden sm:block">Notice:</span>
         </div>
       </div>
       <div className="user flex gap-2">
@@ -39,7 +37,7 @@ const Header = () => {
         />
         <button
           type="button"
-          className="bg-sky-600 hover:bg-sky-800 transition-all hover:gap-3 flex items-center gap-2 rounded-md px-4 text-white font-semibold"
+          className="bg-sky-600 hidden hover:bg-sky-800 transition-all hover:gap-3 sm:flex items-center gap-2 rounded-md px-4 text-white font-semibold"
         >
           <MdLogout className="text-xl" />
           <span>Log Out</span>
