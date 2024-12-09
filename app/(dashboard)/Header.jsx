@@ -4,9 +4,9 @@ import UserImg from "@/public/me.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FaInfoCircle } from "react-icons/fa";
-import { MdLogout } from "react-icons/md";
+import { MdLogout, MdOutlineMenuOpen } from "react-icons/md";
 
-const Header = () => {
+const Header = ({ showSidebar, setShowSidebar }) => {
   const pathname = usePathname();
 
   const formattedPathname =
@@ -14,6 +14,15 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 sm:px-6 px-2 py-3 bg-white flex gap-6 items-center justify-between border-b shadow-md">
+      <button
+        type="button"
+        className={`menu_icon block rotate-180 lg:hidden border rounded-md p-2 bg-gray-100 ${
+          showSidebar ? "rotate-0" : ""
+        }`}
+        onClick={() => setShowSidebar(!showSidebar)}
+      >
+        <MdOutlineMenuOpen className="text-2xl" />
+      </button>
       <h1 className="hidden lg:block text-2xl font-bold text-sky-600 capitalize">
         {formattedPathname}
       </h1>

@@ -124,14 +124,14 @@ const Page = () => {
       <h1 className="text-xl mb-4 border-l-8 pl-2 border-sky-500 font-bold text-gray-800">
         Student Profile
       </h1>
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className="left col-span-1 xl:col-span-2 space-y-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 sm:gap-6 gap-2">
+        <div className="left col-span-1 xl:col-span-2 sm:space-y-6 space-y-2">
           {/* Profile card */}
           <section className="profile_card">
-            <div className="bg-white overflow-hidden border border-t-8 border-t-sky-500 rounded-lg shadow-md">
-              <div className="sm:p-6 p-4 space-y-5">
-                <div className="flex flex-col items-center sm:items-start md:flex-row gap-6">
-                  <div className="flex-shrink-0">
+            <div className="bg-white overflow-hidden border border-t-8 border-t-sky-500 sm:rounded-lg sm:shadow-md">
+              <div className="sm:p-6 px-2 py-4 sm:space-y-5 space-y-2">
+                <div className="flex flex-col items-start md:flex-row sm:gap-6 gap-3">
+                  <div className="mx-auto">
                     <div className="relative">
                       <Image
                         src={StudentImg}
@@ -152,8 +152,8 @@ const Page = () => {
                       </li>
                     </ul>
                   </div>
-                  <ul className="flex-1 sm:space-y-3 space-y-2 sm:text-start text-center">
-                    <li className="text-2xl text-center sm:text-start font-bold text-gray-700">
+                  <ul className="flex-1 sm:space-y-3 sm:text-base text-sm space-y-2">
+                    <li className="sm:text-2xl text-xl font-bold text-gray-700">
                       Welcome, <span className="text-sky-600">Ahsan Habib</span>
                     </li>
                     <li className="text-gray-600">
@@ -185,17 +185,38 @@ const Page = () => {
                 </li> */}
                   </ul>
                 </div>
-                <p className="text-center py-3 border-2 border-dashed bg-green-50 text-green-600 sm:text-lg text-base font-semibold border-green-200">
+                <p className="text-center sm:p-3 p-2 border-2 border-dashed bg-green-50 text-green-600 sm:text-lg text-base font-semibold border-green-200">
                   You are permitted for examination: Summer-2024
                 </p>
               </div>
             </div>
           </section>
 
+          <section className="stats sm:hidden grid 2xl:grid-cols-2 sm:grid-cols-2 grid-cols-1 sm:gap-6 gap-2">
+            <div className="result border flex gap-5 items-center bg-white sm:shadow-md sm:rounded-lg p-4 overflow-hidden border-l-8 border-l-cyan-400">
+              <div className="icon text-4xl text-cyan-400 pr-5 border-r">
+                <LuClipboardCheck />
+              </div>
+              <div className="text 2xl:text-center">
+                <h3 className="text-slate-500 font-semibold">Current CGPA</h3>
+                <p className="font-bold lg:text-2xl text-lg">4.00</p>
+              </div>
+            </div>
+            <div className="due border flex gap-5 items-center bg-white sm:shadow-md sm:rounded-lg p-4 overflow-hidden border-l-8 border-l-lime-400">
+              <div className="icon text-4xl text-lime-400 pr-5 border-r">
+                <HiOutlineBanknotes />
+              </div>
+              <div className="text 2xl:text-center">
+                <h3 className="text-slate-500 font-semibold">Total Due</h3>
+                <p className="font-bold lg:text-2xl text-lg">2000.00</p>
+              </div>
+            </div>
+          </section>
+
           {/* Routines */}
           <section className="routine_card">
-            <div className="bg-white rounded-lg border shadow-md">
-              <div className="heading sm:pt-5 sm:px-6 p-4 pb-0 flex gap-3 items-center justify-between">
+            <div className="bg-white sm:rounded-lg border sm:shadow-md">
+              <div className="heading sm:pt-5 sm:px-6 px-2 py-4 pb-0 flex gap-3 items-center justify-between">
                 <h1 className="text-xl flex-grow leading-none font-bold text-gray-800">
                   Exam Routine
                 </h1>
@@ -208,42 +229,26 @@ const Page = () => {
               </div>
 
               {/* Responsive Table Wrapper */}
-              <div className="sm:p-6 sm:pt-4 p-4 overflow-x-auto">
+              <div className="sm:p-6 sm:pt-4 px-2 py-4 overflow-x-auto">
                 <table className="min-w-full border table-auto border-collapse">
                   <thead className="bg-purple-200">
-                    <tr>
-                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
-                        Date
-                      </th>
-                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
-                        Exam Time
-                      </th>
-                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
-                        Subject
-                      </th>
-                      <th className="sm:px-4 sm:py-2 p-2 border border-purple-300 text-left sm:text-base text-sm font-semibold text-gray-700">
-                        Location
-                      </th>
+                    <tr className="*:sm:px-4 *:sm:py-2 *:p-1 *:border *:border-purple-300 *:sm:text-left text-center *:md:text-base *:sm:text-sm *:text-xs *:font-semibold *:text-gray-700">
+                      <th>Date</th>
+                      <th>Exam Time</th>
+                      <th>Subject</th>
+                      <th>Location</th>
                     </tr>
                   </thead>
                   <tbody>
                     {examRoutine.map((exam, index) => (
                       <tr
                         key={index}
-                        className="even:bg-purple-50 odd:bg-white"
+                        className="even:bg-purple-50 odd:bg-white *:sm:px-4 *:sm:py-2 *:p-1 *:border *:md:text-base *:sm:text-sm *:text-xs *:text-gray-600"
                       >
-                        <td className="sm:px-4 sm:py-2 p-1 break-all border sm:text-base text-sm text-gray-600">
-                          {exam.date}
-                        </td>
-                        <td className="sm:px-4 sm:py-2 p-1 border sm:text-base text-sm text-gray-600">
-                          {exam.examTime}
-                        </td>
-                        <td className="sm:px-4 sm:py-2 p-1 border sm:text-base text-sm text-gray-600">
-                          {exam.subject}
-                        </td>
-                        <td className="sm:px-4 sm:py-2 p-1 text-center border sm:text-base text-sm text-gray-600">
-                          {exam.location}
-                        </td>
+                        <td className="break-all">{exam.date}</td>
+                        <td className="">{exam.examTime}</td>
+                        <td className="">{exam.subject}</td>
+                        <td className="text-center">{exam.location}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -252,7 +257,7 @@ const Page = () => {
             </div>
           </section>
 
-          <section className="notices sm:p-6 p-4 bg-white rounded-md shadow-md border space-y-4">
+          <section className="notices sm:p-6 px-2 py-4 bg-white sm:rounded-md sm:shadow-md border space-y-4">
             <h2 className="text-xl font-bold border-l-8 border-amber-500 pl-2">
               Notice Board
             </h2>
@@ -285,13 +290,17 @@ const Page = () => {
               {notices[category].map((notice, index) => (
                 <div
                   key={index}
-                  className="notice bg-white p-4 rounded-md border"
+                  className="notice bg-gray-50 sm:p-4 sm:rounded-md border-l-4 p-2 border-sky-500 sm:border-gray-200 sm:shadow-sm sm:border"
                 >
-                  <h2 className="text-lg font-bold text-gray-800">
+                  <h2 className="sm:text-lg leading-none font-bold text-gray-800">
                     {notice.title}
                   </h2>
-                  <p className="text-sm text-gray-600">{notice.date}</p>
-                  <p className="text-gray-700 mt-2">{notice.description}</p>
+                  <p className="sm:text-sm text-xs mt-1 text-gray-600">
+                    {notice.date}
+                  </p>
+                  <p className="text-gray-700 text-sm sm:text-base mt-1">
+                    {notice.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -299,13 +308,13 @@ const Page = () => {
         </div>
 
         {/* Right panel */}
-        <div className="col-span-1 space-y-6">
-          <section className="stats grid 2xl:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6">
+        <div className="col-span-1 sm:space-y-6 space-y-2">
+          <section className="stats hidden sm:grid sm:grid-cols-1 grid-cols-1 gap-6 mx-2 sm:m-0">
             <div className="result border flex gap-5 items-center bg-white shadow-md rounded-lg p-4 overflow-hidden border-l-8 border-l-cyan-400">
               <div className="icon text-4xl text-cyan-400 pr-5 border-r">
                 <LuClipboardCheck />
               </div>
-              <div className="text 2xl:text-center">
+              <div className="text">
                 <h3 className="text-slate-500 font-semibold">Current CGPA</h3>
                 <p className="font-bold text-2xl">4.00</p>
               </div>
@@ -314,7 +323,7 @@ const Page = () => {
               <div className="icon text-4xl text-lime-400 pr-5 border-r">
                 <HiOutlineBanknotes />
               </div>
-              <div className="text 2xl:text-center">
+              <div className="text">
                 <h3 className="text-slate-500 font-semibold">Total Due</h3>
                 <p className="font-bold text-2xl">2000.00</p>
               </div>
@@ -322,7 +331,7 @@ const Page = () => {
           </section>
 
           {/* Attendence section */}
-          <section className="attendance sm:p-6 p-4 bg-white rounded-md shadow-md border space-y-4">
+          <section className="attendance sm:p-6 px-2 py-4 bg-white sm:rounded-md sm:shadow-md border space-y-4">
             <h2 className="text-xl font-bold border-l-8 border-fuchsia-500 pl-2">
               Attendance
             </h2>
@@ -337,10 +346,10 @@ const Page = () => {
                 return (
                   <div
                     key={index}
-                    className="report-card p-4 bg-gray-50 border rounded-lg shadow-sm flex justify-between items-center"
+                    className="report-card sm:p-4 px-3 py-2 bg-gray-50 border sm:rounded-lg sm:shadow-sm flex justify-between items-center"
                   >
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800">
+                      <h3 className="sm:text-lg font-semibold text-gray-800">
                         {course.course}
                       </h3>
                       <p className="text-sm text-gray-600">

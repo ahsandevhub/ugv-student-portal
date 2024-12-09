@@ -32,7 +32,7 @@ const NavLinks = () => {
             }`}
           >
             <span className="text-2xl lg:text-xl">{link.icon}</span>
-            <span className="hidden lg:block">{link.text}</span>
+            <span className="">{link.text}</span>
           </Link>
         </li>
       ))}
