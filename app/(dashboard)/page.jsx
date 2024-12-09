@@ -232,7 +232,7 @@ const Page = () => {
               <div className="sm:p-6 sm:pt-4 px-2 py-4 overflow-x-auto">
                 <table className="min-w-full border table-auto border-collapse">
                   <thead className="bg-purple-200">
-                    <tr className="*:sm:px-4 *:sm:py-2 *:p-1 *:border *:border-purple-300 *:sm:text-left text-center *:md:text-base *:sm:text-sm *:text-xs *:font-semibold *:text-gray-700">
+                    <tr className="*:sm:px-4 *:sm:py-2 *:p-1 *:border *:border-purple-300 text-center *:sm:text-sm *:text-xs *:font-semibold *:text-gray-700">
                       <th>Date</th>
                       <th>Exam Time</th>
                       <th>Subject</th>
@@ -243,7 +243,7 @@ const Page = () => {
                     {examRoutine.map((exam, index) => (
                       <tr
                         key={index}
-                        className="even:bg-purple-50 odd:bg-white *:sm:px-4 *:sm:py-2 *:p-1 *:border *:md:text-base *:sm:text-sm *:text-xs *:text-gray-600"
+                        className="even:bg-purple-50 odd:bg-white *:sm:px-4 *:sm:py-2 *:p-1 *:border *:sm:text-sm *:text-xs *:text-gray-600"
                       >
                         <td className="break-all">{exam.date}</td>
                         <td className="">{exam.examTime}</td>
